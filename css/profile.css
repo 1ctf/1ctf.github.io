@@ -1,0 +1,43 @@
+#form {
+  width: 350px;
+  height: 220px;
+  margin: 40px auto;
+}
+#form .jump {
+  height: 22px;
+  margin-top: 0px;
+}
+#form a {
+  font-size: 12px;
+  margin: 0 5px;
+}
+#form div {
+  width: 350px;
+  height: 40px;
+  float: left;
+  margin-top: 10px;
+}
+#form div lable {
+  display: block;
+  width: 70px;
+  height: 40px;
+  font-size: 14px;
+  line-height: 40px;
+  float: left;
+}
+#form div input {
+  width: 270px;
+  height: 30px;
+  line-height: 40px;
+  float: left;
+  margin-top: 3px;
+}
+#form div input[type="text"],
+#form div input[type="password"] {
+  text-indent: 0.5em;
+}
+#form div input[type="submit"] {
+  width: 100px;
+  height: 35px;
+  float: none;
+}

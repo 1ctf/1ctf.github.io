@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0'/>
+  <title>Codemoji – A fun tool to learn about ciphers</title>
+  <meta name="description" content="Codemoji teaches you about ciphers. Create and share messages with your friends using fun emoji.">
+
+  <!-- process:template
+  <meta property="og:title" content="Codemoji - A fun tool to learn about ciphers">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%=env.domain%>">
+  <meta property="og:image" content="<%=env.domain%>/assets/img/share.jpg">
+  <meta property="og:site_name" content="www.mozilla.org">
+  <meta property="og:description" content="Codemoji teaches you about ciphers. Create and share messages with your friends using fun emoji.">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="<%=env.domain%>">
+  <meta name="twitter:creator" content="@mozilla">
+  <meta name="twitter:url" content="<%=env.domain%>">
+  <meta name="twitter:title" content="Codemoji - A fun tool to learn about ciphers">
+  <meta name="twitter:description" content="Codemoji teaches you about ciphers. Create and share messages with your friends using fun emoji.">
+  <meta name="twitter:image:src" content="<%=env.domain%>/assets/img/share.jpg">
+  /process -->
+
+  <!-- build:css style.css -->
+  <link rel="stylesheet" type="text/css" href="vendor/nanoscroller/nanoscroller.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/color.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/flex_light.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/generic.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/module_header.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/module_svg_robot.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_welcome.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_main.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_share.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_onboarding.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_loading.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_more.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_not_found.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/section_credits.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/js_handlers.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/desktop.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/loader.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/height_resize_mq.css">
+  <!-- endbuild -->
+
+  <!-- process:template 
+  <style type="text/css"> 
+  /process -->
+  <!-- process:include style.css --><!-- /process -->
+  <!-- process:template 
+  </style> 
+  /process -->
+
+
+  <!-- <script type="text/javascript" src="assets/text/text.json"></script> -->
+  <script type="text/javascript">
+    // Setup global namespace
+    window.Cryptoloji = {
+      states: {},
+      current: { input: null, output: null, key: null }
+    }
+    var keysliderEmojiList = [
+      128513, // 😁
+      128064, // 👀
+      128640, // 🚀
+      127817, // 🍉
+      9889,   // ⚡
+      128169, // 💩
+      127829, // 🍕
+      127818, // 🍊
+      128561, // 😱
+      128522, // 😊
+      128586, // 🙊
+      127812, // 🍄
+      128556, // 😬
+      128161, // 💡
+      128136, // 💈
+    ]
+  </script>
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="cache/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="cache/favicon/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="cache/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="cache/favicon/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="cache/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body class="main_content_top_input-first">
+  
+  <noscript>
+    <p>Please enable javascript in your browser to use and see Codemoji correctly.</p>
+    <p>
+      <a href="http://www.enable-javascript.com/">Click here</a>
+      if you need help figuring out how.
+    </p>
+  </noscript>
+
+  <div id="mainLoader">
+    <div class="svg_wrapper svg_captcha_robot" data-svg="assets/svg/robot1.svg"></div>
+  </div>
+
+  <div id="header" class="header">
+    <div layout="column" layout-align="center center" class="header_onboarding_fix">
+    <a to-state="welcome" track="header__home">
+      <div class="svg_wrapper svg_wrapper_header" data-svg="assets/svg/logo_smile.svg" layout="column" layout-align="center center"></div>
+    </a>
+    </div>
+  </div>
+
+
+  <!-- MODAL_KEYS -->
+  <div id="key-modal" class="main_key_modal">
+    <div class="main_key_modal_emoji_wrapper" layout="column" layout-align="start center">
+      <div class="main_key_modal_emoji_container unselectable" layout="column" layout-align="start center">
+        <!-- js injected -->
+      </div>
+    </div>
+  </div>
+  <!-- /MODAL_KEYS -->
+
+
+  <!-- LANDSCAPE OVERLAY -->
+  <div class="landscape-overlay" layout="column" layout-align="center center" color-bg-main>
+    <div class="content" flex layout="column" layout-align="center center">
+      <img src="assets/svg/lock-rotation.svg" alt="Rotation locked" />
+    </div>
+  </div>
+  <!-- /LANDSCAPE OVERLAY -->
+
+
+  <!-- CREDITS -->
+  <div class="section credits_section" layout="column" layout-align="center center" color-bg-dark>
+    <div scroll-y class="content" flex layout="column" layout-align="center center">
+      <div layout="column" layout-align="center center">
+        <p class="credits_text_main">
+          Codemoji is a Mozilla Foundation project ideated and developed by 
+          <a href="http://todo.to.it/" target="blank">TODO</a> in support of the  
+          <a href="https://advocacy.mozilla.org/encrypt" target="blank">Encrypt campaign</a> launched in early 2016
+        </p>
+      </div>
+      <div class="credits_vendor" flex layout="column" layout-align="start center">
+        <p class="credits_text">
+          The Codemoji project source files are openly available under Mozilla Public License v2 on 
+          <a href="https://github.com/todotoit/codemoji">GitHub</a>
+        </p>
+        <p class="credits_text">
+          A special thanks to Twitter for their
+          <a href="https://github.com/twitter/twemoji">twemoji</a> 
+          library, which provided us with the widest set of cross-platform emojis we could use in building this project
+          <br><br>
+          The following open-source libraries were also used in developing the website:<br>
+          <a href="https://github.com/ded/bowser">bowser</a>,
+          <a href="https://github.com/zenorocha/clipboard.js">clipboard</a>,
+          <a href="https://github.com/florian/cookie.js">cookie</a>,
+          <a href="https://github.com/mathiasbynens/esrever">esrever</a>,
+          <a href="https://github.com/ftlabs/fastclick">fastclick</a>,
+          <a href="https://mths.be/fromcodepoint">fromcodepoint</a>,
+          <a href="https://github.com/greensock/GreenSock-JS">gsap</a>,
+          <a href="https://github.com/jquery/jquery-dist">jquery</a>,
+          <a href="https://github.com/rstacruz/jquery.transit">jquery.transit</a> ,
+          <a href="https://github.com/lodash/lodash">lodash</a>,
+          <a href="https://github.com/lodash/lodash">nanoscroller</a>,
+          <a href="https://github.com/necolas/normalize.css">normalize-css</a>,
+          <a href="https://github.com/bestiejs/punycode.js">punycode</a>,
+          <a href="https://github.com/facebook/rebound-js">rebound-js</a>,
+          <a href="https://github.com/leeluolee/stateman">stateman</a>,
+          <a href="https://github.com/Zhouzi/TheaterJS">theater</a>,
+          <a href="https://github.com/twitter/twemoji">twemoji</a>,
+          <a href="https://github.com/purge/youarei.js">youarei</a>.
+        </p>
+      </div>
+      <!-- <p class="credits_text">credits</p> -->
+      <!-- <a class="mozilla_button">back</a> -->
+    </div>
+    <div class="svg_wrapper svg_wrapper_x_button" 
+         data-svg="assets/svg/x.svg"
+         layout="column" layout-align="center center"></div>
+  </div>
+  <!-- /CREDITS -->
+
+
+  <!-- WELCOME views/welcome -->
+  <div class="section_welcome section" footer-padding-bottom-correction color-bg-dark color-light layout="column" layout-align="center center">
+    <div id="mainHeaderBig" class="section_welcome_header" color-bg-light layout="column" layout-align="center center" wide>
+      <div id="welcome_header" class="svg_wrapper svg_wrapper_header_name" data-svg="assets/svg/logo_complete_animation.svg" color-fill-main-alt
+           layout="column" layout-align="center center"></div>
+    </div>
+    <div id="body_landing" class="section_welcome_main" color-bg-dark layout="column" layout-align="center center" wide flex>
+        <p class="welcome_text" layout="column" layout-align="center center">
+          Codemoji teaches you about ciphers.<br>Create and share messages with<br>your friends using fun emoji.
+        </p>
+        <button button-box class="mozilla_button" to-state="onboarding" show-on-first-visit-only>
+          Let's get going
+        </button>
+        <p class="welcome_the_other">
+          Looking for <img class="logocompetitor" src="assets/svg/codemoji_panda_logo_bw.svg" />, the coding platform? <br />Visit them at <a href="https://codemoji.com">Codemoji.com</a>
+        </p>
+        <!-- <button button-box class="mozilla_button mozilla_button_bottom_margin" to-state="encrypt" hide-on-first-visit-only track="home__encrypt">
+          Try It
+        </button>
+        <button button-box class="mozilla_button mozilla_button_blue" to-state="onboarding" hide-on-first-visit-only track="home__onboarding">
+          Find out more
+        </button> -->
+    </div>
+      <div showItIfMobile class="mobile_footer_small">
+        <div layout="row" layout-align="center center">
+          <a href="https://beta.webmaker.org/#/legal?_k=mqd1ed" class="footer_link_wrapper_opacity"
+             layout="row" layout-align="center center">
+            <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+                 data-svg="assets/svg/footer-icon-terms.svg"
+                 layout="column" layout-align="center center"></div>
+            <p class="footer_link">Legal</p>
+          </a>
+          <a href="https://www.mozilla.org/en-US/privacy/websites/" class="footer_link_wrapper_opacity" 
+             layout="row" layout-align="center center">
+            <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+                 data-svg="assets/svg/footer-icon-privacy.svg"
+                 layout="column" layout-align="center center"></div>
+            <p class="footer_link">Privacy notice</p>
+          </a>
+          <a to-state="credits" class="footer_link_wrapper_opacity" 
+             layout="row" layout-align="center center">
+            <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+                 data-svg="assets/svg/footer-icon-credits.svg"
+                 layout="column" layout-align="center center"></div>
+            <p class="footer_link">Credits</p>
+          </a>
+        </div>
+      </div>
+  </div>
+  <!-- /WELCOME -->
+
+
+  <!-- LANDING views/landing -->
+  <div class="section_landing section" footer-padding-bottom-correction color-bg-dark color-light layout="column" layout-align="center center">
+    <div id="mainLandingBig" class="section_welcome_header" color-bg-light layout="column" layout-align="center center" wide>
+      <div id="landing_header" class="svg_wrapper svg_wrapper_header_name" data-svg="assets/svg/logo_complete_animation.svg" color-fill-main-alt
+           layout="column" layout-align="center center"></div>
+    </div>
+    <div class="section_welcome_main" color-bg-dark layout="column" layout-align="center center" wide flex>
+        <div layout="column" layout-align="start center">
+
+     <!-- landing state 1 -->
+          <p id="landing_state_1_text" class="welcome_text" layout="column" layout-align="center center" landing-state="1">
+            <span hideIfMozilla>Someone sent you this scrambled message: </span>
+            <span showIfMozilla>Mozilla sent you this scrambled message: </span>
+          </p>
+          <p id="landing_state_1_encrypted_message" class="landing_encrypted_message" landing-state="1">
+            <!-- js injected -->
+          </p>
+          <button class="mozilla_button" id="landing_state_1_button" to-state="decrypt" landing-state="1" track="landing__decipherit">
+            Decipher it
+          </button>
+          <a track="decrypt__learnmore" class="Learn_more_button footer_link" landing-state="1" id="landing_state_1_more"
+             href="https://advocacy.mozilla.org/encrypt/codemoji" target="_blank">
+            Learn more about encryption
+          </a>
+
+     <!-- landing state 2 
+          <p class="welcome_text" id="landing_state_2_text" layout="column" layout-align="center center" landing-state="2">
+            The right emoji deciphers the message.<br>Your friends should have sent you hints to help. 
+          </p>
+          <div class="svg_wrapper svg_wrapper_landing_key" id="landing_state_2_svg" data-svg="assets/svg/landing_choose_key1.svg" landing-state="2"></div>
+
+          <button id="landing_state_2_button" class="mozilla_button" id="landing_button_last" landing-state="2" to-state="decrypt" track="decrypt__find">
+            Find the emoji
+          </button>  -->
+        </div>
+    </div>
+      <div showItIfMobile class="mobile_footer_small">
+        <div layout="row" layout-align="center center">
+          <a href="https://beta.webmaker.org/#/legal?_k=mqd1ed" class="footer_link_wrapper_opacity"
+             layout="row" layout-align="center center">
+            <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+                 data-svg="assets/svg/footer-icon-terms.svg"
+                 layout="column" layout-align="center center"></div>
+            <p class="footer_link">Legal</p>
+          </a>
+          <a href="https://www.mozilla.org/en-US/privacy/" class="footer_link_wrapper_opacity" 
+             layout="row" layout-align="center center">
+            <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+                 data-svg="assets/svg/footer-icon-privacy.svg"
+                 layout="column" layout-align="center center"></div>
+            <p class="footer_link">Privacy Notice</p>
+          </a>
+          <a to-state="credits" class="footer_link_wrapper_opacity" 
+             layout="row" layout-align="center center">
+            <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+                 data-svg="assets/svg/footer-icon-credits.svg"
+                 layout="column" layout-align="center center"></div>
+            <p class="footer_link">Credits</p>
+          </a>
+        </div>
+      </div>
+  </div>
+  <!-- /LANDING -->
+
+
+  <!-- ONBOARDING views/onboarding -->
+  <div id="main_section_onboarding_wrapper" class="section_onboarding_wrapper section">
+
+    <div class="section_onboarding section" slide-num="1" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide01.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+
+    <div class="section_onboarding section" slide-num="2" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide02.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+    <div class="section_onboarding section" slide-num="3" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide03.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+    <div class="section_onboarding section" slide-num="4" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide04.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+    <div class="section_onboarding section" slide-num="5" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide05.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+    <div class="section_onboarding section" slide-num="6" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide06.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+    <div class="section_onboarding section" slide-num="7" color-bg-dark
+         layout="row" layout-align="center center">
+        <div class="svg_wrapper svg_wrapper_onboarding" data-svg="assets/svg/slide07.svg"
+             layout="column" layout-align="center center" unfixme="true"></div>
+    </div>
+
+
+    <div class="next_button_onboarding" layout="column" layout-align="start center">
+        <p class="mozilla_button" id="next_button_onboarding" track="onboarding__next">Next</p>
+    </div>
+    <div class="svg_wrapper svg_wrapper_pagination" data-svg="assets/svg/pagination.svg" layout="column" layout-align="center center"></div>
+    <p to-state="onboarding.step7" class="onboarding_skip_button" track="onboarding__gotit">Got it</p>
+  </div>
+  <!-- /ONBOARDING -->
+
+
+  <!-- LOADING loading 
+  <div class="section_loading section" color-bg-dark>
+    <div class="section_loading_wrapper" layout="column" layout-align="center center" wide>
+      <div class="svg_wrapper svg_wrapper_loading" data-svg="assets/svg/loading1.svg"></div>
+    </div>
+    <p class="section_loading_text" style-text color-light>A FUN WAY TO LEARN ABOUT CIPHERS</p>
+  </div>
+   /LOADING -->
+
+
+  <!-- ENCRYPTION views/encryption -->
+  <div class="section_main section encryption" layout="column" layout-align="start center">
+    <div class="section_main_wrapper" layout="column" layout-align="center center" 
+         footer-padding-bottom-correction>
+      <div id="encryptHeader" class="header" layout="column" layout-align="center center" color-bg-light wide>
+          <div class="svg_wrapper encryption_help_button" track="encrypt__help" id="encryption_help_button" data-svg="assets/svg/help1.svg"
+           layout="column" layout-align="center center"></div>
+            <a to-state="welcome">
+              <div class="svg_wrapper svg_wrapper_header" data-svg="assets/svg/logo_payoff.svg"
+                   layout="column" layout-align="center center"></div>
+            </a>
+      </div>
+      <div class="main_content_top" flex layout="column" color-bg-main>
+        <div class="coachmark coachmark_encryption_text"
+             layout="column" layout-align="start start">
+          <p class="coachmark_text">
+            Create a message for your friends and let Codemoji scramble it.
+          </p>
+        </div>
+        <label uppercase class="header__label main_content_top_label" style-lable color-light>
+          YOUR MESSAGE
+        </label>
+        <textarea maxlength="120" flex id="encryption_input" class="header__input main_content_top_input" style-input placeholder="Write your message here."></textarea>
+        <p id="encryption_input_count" class="encryption_input_count main_content_top_label" uppercase style-lable></p>
+        <div id="encryption_input_cleaner" class="svg_wrapper svg_wrapper_x" data-svg="assets/svg/x.svg" track="encrypt__clean"></div>
+      </div>
+      <div id="encryption_keyslider" class="main_keyslider">
+        <div class="coachmark coachmark_encryption_text">
+          <p class="coachmark_text">
+            Each emoji scrambles messages differently. Remember to give your friends a hint about the emoji you use. 
+          </p>
+        </div>
+        <div hideItIfMobile>        
+          <div class="desktop_main_selected_key unselectable" layout="row" layout-align="center center" wide>
+            <div id="encryption_selected_key" class="desktop_key">
+              <!-- js-injected -->
+            </div>
+          </div>
+        </div>
+        <label class="header__label main_keyslider_bottom_label" uppercase style-lable>
+          EMOJI TO SCRAMBLE THE MESSAGE
+        </label>
+        <div class="keyslider" showItIfMobile>
+          <div class="keyslider_content unselectable" layout="row" layout-align="start center">
+            <!-- js injected -->
+          </div>
+        </div>
+        <div id="encryption_keypanel" hideItifMobile class="main_key_panel_emoji_wrapper" layout="column" layout-align="start center">
+          <div class="nano">          
+            <div class="main_key_panel_emoji_container unselectable nano-content" layout="column" layout-align="start center">
+             <!-- js injected -->
+            </div>
+          </div>
+        </div>
+        <div showItIfMobile class="main_keyslider_plus" color-bg-main-ligther>
+          <div class="main_keyslider_plus_wrp" id="encryption_key_modal_open" layout="column" layout-align="center center" track="encrypt__moremoji">
+            <div class="main_keyslider_spacer"></div>
+            <div class="svg_wrapper svg_wrapper_plus" data-svg="assets/svg/plus.svg" color-fill-main-ligther></div>
+          </div>
+        </div>
+      </div>
+      <div class="main_content_bottom" flex layout="column">
+        <div class="coachmark coachmark_encryption_text">
+          <p class="coachmark_text">
+            Share your emoji message so your friends can learn more about ciphers too.
+          </p>
+        </div>
+        <label class="header__label main_content_bottom_label" uppercase style-lable>
+          SCRAMBLED MESSAGE
+        </label>
+        <div flex id="encryption_output" class="header__input main_content_bottom_input placeholdit" 
+             placeholder="Pick an emoji to see your message in cipher here." style-input>          
+          <div class="bluebox_output"></div>
+          <div class="emojis_output"></div>
+        </div>
+
+        
+        <div id="encryption_share_button">
+          <div class="main_share" layout="column" layout-align="start center">
+            <div id="share_wrapper_js">
+              <a class="mozilla_button" to-state="share" track="encrypt__share">SHARE THIS MESSAGE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="tooltip_panel" class="tooltip_panel">
+     You've picked a key. Write your message to see it in cipher.
+  </div>
+  <!-- /ENCRYPTION -->
+
+   <!-- DECRYPTION views/decryption -->
+  <div class="section_main section decryption" layout="column" layout-align="start center">
+    <div class="section_main_wrapper" layout="column" layout-align="center center" 
+         footer-padding-bottom-correction>
+      <!-- header -->
+      <div id="decryptHeader" class="header" layout="column" layout-align="center center" color-bg-light wide>
+          <div class="svg_wrapper decryption_help_button" track="decrypt__help" id="decryption_help_button" data-svg="assets/svg/help1.svg"
+               layout="column" layout-align="center center"></div>
+          <a to-state="welcome">
+            <div class="svg_wrapper svg_wrapper_header" data-svg="assets/svg/logo_payoff.svg"
+                 layout="column" layout-align="center center"></div>
+          </a>
+      </div>
+      <!-- main content top -->
+      <div class="main_content_top" flex layout="column">
+        <div class="coachmark coachmark_decryption_text"
+             layout="column" layout-align="start start">
+          <p class="coachmark_text">
+             This looks like a bunch of emojis, but actually is a message just for you!
+          </p>
+        </div>
+        <label class="header__label main_content_top_label" uppercase style-lable color-light>
+          SCRAMBLED MESSAGE
+        </label>
+        <div flex id="decryption_input" class="header__input main_content_top_input" style-input>
+          <!-- js injected -->
+        </div>
+      </div>
+      <!-- main keyslider  -->
+      <div id="decryption_keyslider" class="main_keyslider">
+        <div class="coachmark coachmark_encryption_text">
+          <p class="coachmark_text">
+            Each emoji scrambles messages differently. Ask your friend for a hint to find the right one. 
+          </p>
+        </div>
+        <!-- selected key desktop-->
+        <div hideItIfMobile>        
+          <div class="desktop_main_selected_key unselectable" layout="row" layout-align="center center" wide>
+            <div id="decryption_selected_key" class="desktop_key">
+              <!-- js-injected -->
+            </div>
+          </div>
+        </div>
+        <label class="header__label main_keyslider_bottom_label" uppercase style-lable>
+          EMOJI TO UNSCRAMBLE THE MESSAGE
+        </label>
+        <!-- modal keys mobile -->
+        <div class="keyslider" showItIfMobile>
+          <div class="keyslider_content unselectable" layout="row" layout-align="start center">
+            <!-- js injected -->
+          </div>
+        </div>
+        <!-- panel keys desktop -->
+        <div id="decryption_keypanel" hideItifMobile class="main_key_panel_emoji_wrapper" layout="column" layout-align="start center">
+          <div class="nano">          
+            <div class="main_key_panel_emoji_container unselectable nano-content" layout="column" layout-align="start center">
+              <!-- js injected -->
+            </div>
+          </div>
+        </div>
+        <!-- plus mobile button -->
+        <div class="main_keyslider_plus" color-bg-main-ligther showItIfMobile>
+          <div class="main_keyslider_plus_wrp" id="decryption_key_modal_open" layout="column" layout-align="center center">
+            <div class="main_keyslider_spacer"></div>
+            <div class="svg_wrapper svg_wrapper_plus" data-svg="assets/svg/plus.svg" color-fill-main-ligther></div>
+          </div>
+        </div>
+      </div>
+      <!-- main content bottom -->
+      <div class="main_content_bottom" flex layout="column" color-bg-main>
+        <div class="coachmark coachmark_encryption_text">
+          <p class="coachmark_text">
+            If you picked the right emoji you’ll see your message. See gibberish? Ask your friend for a hint or keep guessing!
+          </p>
+        </div>
+        <label class="header__label main_content_bottom_label" uppercase style-lable>
+          YOUR MESSAGE
+        </label>
+        <div flex id="decryption_output" 
+             class="header__input main_content_bottom_input placeholdit" 
+             placeholder="Your message will be unscrambled here.">
+
+          <div class="emojis_output" layout="row" layout-align="start center" layout-wrap></div>
+          <div class="letters_output" layout="row" layout-align="start center" layout-wrap></div>
+        </div>
+
+        <div id="decryption_reply_button">
+          <div class="decrypt_feedback" layout="column" layout-align="start center" style-lable>
+            <p class="wrong_mozilla_key">Doesn’t look like the right emoji. Check Mozilla's newsletter for a hint or try again!</p>
+            <p class="wrong_key">Doesn’t look like the right emoji. Ask the sender for a hint or try again!</p>
+          </div>
+          <div class="main_share" layout="column" layout-align="start center">
+            <p class="decryption_succeded">Well done!</p>
+            <a track="decrypt__newmsg" id="createNewMessage" class="mozilla_button" to-state="onboarding.step7">Create a new message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /DECRYPTION -->
+
+
+  <!-- CAPTCHA 
+  <div color-bg-main class="section_captcha section" layout="column" layout-align="start center">
+    <div layout="column" layout-align="space-between center" flex wide>
+      <div layout="column" layout-align="center end" wide>
+        <div id="share_message_exit" class="share_message_exit" style-title to-state="encrypt" data-svg="assets/svg/x.svg"></div>
+      </div>
+      <div layout="column" layout-align="space-around center" flex>
+        <div layout="row" layout-align="center center">
+          <p style-text center uppercase color-light flex wide>
+            Before sharing, we need a second to make sure you are human
+          </p>
+        </div>
+        <div class="captcha">
+          <p id="captcha_loading" class="loader" color-light>Loading...</p>
+          <form id="captcha_form" method="post">
+            <div id="g-recaptcha" class="g-recaptcha"></div>
+          </form>
+        </div>
+        <div>
+          <div class="svg_wrapper svg_captcha_robot" data-svg="assets/svg/robot.svg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+   /CAPTCHA -->
+
+  <div class="section learnmore_popup_share" layout="row" layout-align="center center">
+    <div class="svg_wrapper svg_wrapper_books" data-svg="assets/svg/books.svg" layout="row" layout-align="center center"></div>
+    <div><a track="share__learnmore" href="https://advocacy.mozilla.org/encrypt/codemoji" target="blank">Learn more about how modern Encryption works</a></div>
+  </div>
+  <!-- SHARE views/share -->
+  <div color-bg-dark class="section_share section" layout="column" layout-align="start center">
+    <div id="tooltip_share" class="tooltip_panel">
+    </div>
+    <div class="share_main_wrap" wide>
+      <div layout="column" layout-align="center end" wide style="height: 2rem">
+        <div id="share_message_exit" class="share_message_exit" style-title to-state="encrypt" data-svg="assets/svg/x.svg" track="share__close"></div>
+      </div>
+      <div class="share_social" layout="column" layout-align="start center" flex wide>
+        <div layout="column" layout-align="center center">
+          <div class="share_message">
+            <span style-text uppercase color-light>SHARE THIS MESSAGE</span>
+          </div>
+          <div flex class="share_message_item share_encrypted_message" layout="row" layout-align="center center" layout-wrap></div>
+        </div>
+        
+       <div id="share_elements_loader" layout="column" layout-align="space-between center" wide>
+          <!-- <p>Cooking the link... </p> -->
+          <div class="svg_wrapper svg_wrapper_loader" data-svg="assets/svg/loader.svg" layout="row" layout-align="center center"></div>
+       </div>
+        <div id="share_elements" layout="column" layout-align="space-between center" wide>
+          <div class="share_social_wrapper" layout="row" layout-align="center center" wide>
+            <a id="share_button_fb" class="social" target="blank" track="share__fb">
+              <div class="svg_wrapper svg_wrapper_social" data-svg="assets/svg/social_fb.svg"></div>
+            </a>
+            <a id="share_button_tw" class="social" target="blank" track="share__tw">
+              <div class="svg_wrapper svg_wrapper_social" data-svg="assets/svg/social_tw.svg"></div>
+            </a>
+            <a id="share_button_ma" class="social" target="blank" track="share__ma">
+              <div class="svg_wrapper svg_wrapper_social" data-svg="assets/svg/social_ma2.svg"></div>
+            </a>
+            <a id="share_button_wa" class="social" showItIfMobile target="blank">
+              <div class="svg_wrapper svg_wrapper_social" data-svg="assets/svg/social_wa.svg"></div>
+            </a>
+            <a id="share_button_sms" class="social" showItIfMobile target="blank" track="share__sms">
+              <div class="svg_wrapper svg_wrapper_social" data-svg="assets/svg/social_ms.svg"></div>
+            </a>
+          </div>
+          <div layout="column" layout-align="center center">
+            <a href style-text id="share_copytoclipboard" readonly="readonly" track="share__link"/></a>
+            <button id="share_copytoclipboardcta" class="mozilla_button mozilla_button share_copytoclipboardcta" button-box track="share__copy">Copy</button>
+            <span id="share_copyIosHint" style-text text="extra-small" opacity="65">long press to copy the link</span>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+    <div class="share_key" layout="column" layout-align="start center">
+      <div id="share_key_hide" layout="column" layout-align="center end" wide>
+        <div class="share_message_exit hidden" style-title data-svg="assets/svg/v.svg"></div>
+      </div>
+      <div id="share_currentkey" class="share_key_emoji" layout="row" layout-align="center center" wide>
+        <div class="share_key-wrapper" layout="column" layout-align="center center">
+          <span class="share_key_emoji-item" layout="column" layout-align="center center" data-clipboard-text="" track="share__emoji"></span>
+        </div>
+          <span class="share_key_emoji-item_feedback" style-text color-dark></span>
+      </div>
+      <span showItIfMobile style-text text="extra-small" opacity="65" class="unselectable" uppercase>Emoji to unscramble your message</span>
+      <p style-text color-light class="share_key_sentence hidden unselectable">
+        Remember to send your friends hints about which emoji you used. Otherwise they won’t be able to read your message!
+      </p>
+    </div>
+  </div>
+  <!-- /SHARE -->
+
+
+  <!-- MORE views/more -->
+<!--   <div color-bg-dark class="section_more section" layout="column" layout-align="start start">
+    <div showItIfMobile class="more_back" color-light to-state="share" wide layout="column" layout-align="center center">
+      BACK TO SHARE
+    </div>
+    <div class="more_text_wpr" flex layout="column" layout-align="center center">
+      <p class="more_text" color-light style-text layout="column" layout-align="start center">
+        <span hideItIfMobile class="more_text_title">MORE ABOUT CRYPTOLOJI</span><br>
+        Cryptoloji is a part of Mozilla Foundation's campaing to promote encryptyion.<br>
+        To learn visit advocacy.mozilla.org
+      </p>
+    </div>
+    <div flex></div>
+    <div class="svg_wrapper svg_wrapper_more" data-svg="assets/svg/mozilla_logo.svg"></div>
+  </div> -->
+  <!-- /MORE -->
+
+
+  <!-- FOOTER -->
+  <div color-bg-main-alt id="footer" class="footer">
+    <div class="footer_wrapper" layout="column" layout-align="center center">
+      <!-- <div layout="row" layout-align="center center">
+        <a class="footer_first_links" href="https://teach.mozilla.org/encryption" target="_blank">learn more</a>
+        <a class="footer_first_links" href="https://teach.mozilla.org/encryption" target="_blank">feedback</a>
+      </div> -->
+      <div class="footer_link" layout="row" layout-align="center center">  
+        <a href="mailto:askjoin@mozilla.org?subject=codemoji" class="footer_link_wrapper_opacity" 
+           layout="row" layout-align="center center">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-feedback.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Feedback</p>
+        </a>
+        <a href="https://advocacy.mozilla.org/encrypt/codemoji" class="footer_link_wrapper_opacity" 
+           layout="row" layout-align="center center" target="blank">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-help.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Learn more</p>
+        </a>
+        <!-- <a href="https://twitter.com/Mozilla" class="footer_link_wrapper_opacity" 
+           layout="row" layout-align="center center" target="blank">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-twitter.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Connect on Twitter</p>
+        </a> -->
+        <a href="https://beta.webmaker.org/#/legal?_k=mqd1ed" class="footer_link_wrapper_opacity"
+           layout="row" layout-align="center center" target="blank">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-terms.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Legal</p>
+        </a>
+        <a href="https://www.mozilla.org/en-US/privacy/websites/" class="footer_link_wrapper_opacity" 
+           layout="row" layout-align="center center" target="blank">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-privacy.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Privacy Notice</p>
+        </a>
+<!--         <a href="https://donate.mozilla.org" class="footer_link_wrapper_opacity" 
+           layout="row" layout-align="center center" target="blank">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-heart.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Donate</p>
+        </a> -->
+        <a to-state="credits" class="footer_link_wrapper_opacity" 
+           layout="row" layout-align="center center" target="blank">
+          <div class="svg_wrapper_welcome_footer_icon svg_wrapper" 
+               data-svg="assets/svg/footer-icon-credits.svg"
+               layout="column" layout-align="center center"></div>
+          <p class="footer_link">Credits</p>
+        </a>
+      </div>
+      <div class="footer_info" layout="row" layout-align="center center">
+        <a href="https://www.mozilla.org" target="blank"><div class="svg_wrapper svg_wrapper_footer" data-svg="assets/svg/mozilla_logo.svg"></div></a>
+        <!-- <p class="footer_text" color-light style-text>
+          Mozilla is a global non-profit dedicated to putting you in control of your online experience and shaping the future of the web for the public good. Visit us at mozilla.org
+        </p> -->
+      </div>
+
+    </div>
+
+<!--     <div class="more_text_wpr" flex layout="column" layout-align="center center">
+      <p class="more_text" color-light style-text layout="column" layout-align="start center">
+        <span hideItIfMobile class="more_text_title">MORE ABOUT CRYPTOLOJI</span><br>
+        Cryptoloji is a part of Mozilla Foundation's campaing to promote encryptyion.<br>
+        To learn visit advocacy.mozilla.org
+      </p>
+    </div>
+    <div flex></div>
+    <div class="svg_wrapper svg_wrapper_more" data-svg="assets/svg/mozilla_logo.svg"></div> -->
+
+
+  </div>
+  <!-- /FOOTER -->
+
+  <!-- NOT FOUND views/not-found -->
+  <div class="section_not_found section">
+    <div layout="column" layout-align="center center" wide>
+      <div class="svg_wrapper svg_wrapper_not_found" id="svg_wrapper_not_found" data-svg="assets/svg/404.svg"
+           layout="column" layout-align="center center"></div>
+      <h1 style-title color-main center class="section_not_found_title">Not found!</h1>
+      <!-- <p>The page you requested was not found or has been moved</p> -->
+      <p style-text class="section_not_found_text">The message you requested was not found or has expired</p>
+      <a class="mozilla_button" to-state="welcome" track="notfound__home">back home</a>
+    </div>
+  </div>
+  <!-- /NOT FOUND -->
+
+
+
+
+  <!-- <script src='//www.google.com/recaptcha/api.js?render=explicit'></script> -->
+
+  <!-- process:remove -->
+  <script type="text/javascript" src="assets/js/handleSvgLoading.js"></script>
+  <!-- /process -->
+
+  <!-- build:vendorjs app.js -->
+  <script type="text/javascript" src="vendor/fromcodepoint.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/jquery.transit/jquery.transit.js"></script>
+  <script type="text/javascript" src="bower_components/fastclick/lib/fastclick.js"></script>
+  <script type="text/javascript" src="bower_components/esrever/esrever.js"></script>
+  <script type="text/javascript" src="bower_components/stateman/stateman.js"></script>
+  <script type="text/javascript" src="bower_components/cookie/cookie.js"></script>
+  
+  <script type="text/javascript" src="bower_components/gsap/src/uncompressed/TweenLite.js"></script>
+  <script type="text/javascript" scr="bower_components/gsap/src/uncompressed/jquery.gsap.js"></script>
+  <script type="text/javascript" src="bower_components/gsap/src/uncompressed/plugins/CSSPlugin.js"></script>
+  
+  <script type="text/javascript" src="bower_components/gsap/src/uncompressed/easing/EasePack.js"></script>
+
+  
+  <script type="text/javascript" src="bower_components/punycode/punycode.js"></script>
+  <script type="text/javascript" src="bower_components/clipboard/dist/clipboard.js"></script>
+  <script type="text/javascript" src="vendor/theater.js"></script>
+  <script type="text/javascript" src="vendor/nanoscroller/nanoscroller.js"></script>
+  
+  <script type="text/javascript" src="bower_components/youarei/dist/youarei.js"></script>
+  <script type="text/javascript" src="bower_components/promise-polyfill/promise.js"></script>
+  <script type="text/javascript" src="bower_components/console-polyfill/index.js"></script>
+
+  <script src="vendor/twemoji.min.js"></script>
+  <script src="vendor/lodash.min.js"></script>
+  
+  <script type="text/javascript" src="vendor/bowser.js"></script>
+
+  <script type="text/javascript" src="libs/crypto-lib/char-list.js"></script>
+  <script type="text/javascript" src="libs/crypto-lib/emoji-list.js"></script>
+  <script type="text/javascript" src="libs/crypto-lib/caesar-shifter.js"></script>
+  <script type="text/javascript" src="libs/crypto-lib/emojifier.js"></script>
+  <script type="text/javascript" src="libs/crypto-lib.js"></script>
+  
+  <script type="text/javascript" src="assets/js/onboarding/init.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_01.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_02.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_03.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_04.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_05.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_06.js"></script>
+  <script type="text/javascript" src="assets/js/onboarding/scene_07.js"></script>
+
+  <script type="text/javascript" src="assets/js/logo-header-animation.js"></script>
+  
+  <script type="text/javascript" src="assets/js/states/decrypt.js"></script>
+  <script type="text/javascript" src="assets/js/states/encrypt.js"></script>
+  <script type="text/javascript" src="assets/js/states/share.js"></script>
+  <script type="text/javascript" src="assets/js/states/onboarding.js"></script>
+  <script type="text/javascript" src="assets/js/states/welcome.js"></script>
+  <script type="text/javascript" src="assets/js/states/more.js"></script>
+  <script type="text/javascript" src="assets/js/states/landing.js"></script>
+  <script type="text/javascript" src="assets/js/states/credits.js"></script>
+  
+  <script type="text/javascript" src="assets/js/states/404.js"></script>
+  <script type="text/javascript" src="assets/js/settings.js"></script>
+  <script type="text/javascript" src="assets/js/visitor.js"></script>
+  <script type="text/javascript" src="assets/js/mq.js"></script>
+  <script type="text/javascript" src="assets/js/api.js"></script>
+  <script type="text/javascript" src="assets/js/storage.js"></script>
+  <script type="text/javascript" src="assets/js/ui.js"></script>
+  <script type="text/javascript" src="assets/js/ui/sharer.js"></script>
+  <script type="text/javascript" src="assets/js/utils.js"></script>
+  <script type="text/javascript" src="assets/js/ui/keyslider.js"></script>
+  <script type="text/javascript" src="assets/js/ui/key-modal.js"></script>
+  <script type="text/javascript" src="assets/js/ui/key-panel.js"></script>
+  <script type="text/javascript" src="assets/js/ui/char-counter.js"></script>
+  <script type="text/javascript" src="assets/js/routes.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+
+  <script type="text/javascript" src="assets/js/IEsvgfix.js" async defer></script>
+  <!-- endbuild -->
+
+
+
+
+<!-- process:template
+<script type="text/javascript">
+function _l(a,b){var c=new XMLHttpRequest,d=document;c.open("GET",a,!0),c.onload=function(){var a=d.createElement("script");a.type="text/javascript",a.textContent=c.responseText,d.body.appendChild(a),b&&b()},c.send()}
+_l('app.js?v=<%=version%>');
+</script>
+/process -->
+
+
+</body>
+</html>

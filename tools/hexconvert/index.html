@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>进制转换 | CTFWiki Tools</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="CTFWiki Tools" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="note"></div>
+  <header id="header">
+    <div id="header-inner" class="inner">
+        <nav id="main-nav">
+            
+                <a class="main-nav-link " href="/tools">在线工具</a>
+            
+                <a class="main-nav-link " href="/events">近期赛事</a>
+            
+                <a class="main-nav-link " href="/platforms">练习平台</a>
+            
+                <a class="main-nav-link " href="/constants">常量查表</a>
+            
+                <a class="main-nav-link " href="/softs">软件下载</a>
+            
+                <a class="main-nav-link " href="/blogs">博客论坛</a>
+            
+                <a class="main-nav-link " href="/discuss">用户交流</a>
+            
+                <a class="main-nav-link " href="/profile">个人中心</a>
+            
+        </nav>
+        <div id="search-form-wrap">
+            <div>
+                <a id="clear" href="javascript:cleartext();">X</a>
+            </div>
+            <div>
+                <input id="kw" name="kw" type="text" maxlength="16" placeholder="搜一搜更简单~" autofocus="autofocus" onkeydown="return search(event);" />
+            </div>
+        </div>
+    </div>
+</header>
+  <div id="container">
+    <section id="main">
+    <div id="center">
+        <style>
+    .num_convert{
+        text-align: left;
+        margin: 20px;
+        line-height: 40px;
+        font-size: 16px;
+    }
+    input[type="text"]{
+        width: 500px;
+        height: 25px;
+        text-indent: 0.5em;
+    }
+</style>
+<script src="./js/hex.js"></script>
+<h1>进制转换（精度问题待调整）</h1>
+<div class="num_convert">
+    <div id="in_hex">
+        <label><input type="radio" name="from" value="2" />2进制</label>
+        <label><input type="radio" name="from" value="8" />8进制</label>
+        <label><input type="radio" name="from" value="10" checked="checked" />10进制</label>
+        <label><input type="radio" name="from" value="16" />16进制</label>
+        <label><input type="radio" name="from" value="32" />32进制</label>
+        <label><input type="radio" name="from" value="36" />36进制</label>
+        <label><input type="radio" name="from" value="58" />58进制</label>
+        <label><input type="radio" name="from" value="62" />62进制</label>
+        <select id="from_hex">
+        </select>
+    </div>
+    <div><label>转换数字：<input type="text" id="hex_val" name="hex_val" onpropertychange="calc_a2b()" onchange="calc_a2b()" oninput="calc_a2b()" placeholder="在此输入待转换数字" /></label></div>
+    <div id="out_hex">
+        <label><input type="radio" name="to" value="2" />2进制</label>
+        <label><input type="radio" name="to" value="8" />8进制</label>
+        <label><input type="radio" name="to" value="10" />10进制</label>
+        <label><input type="radio" name="to" value="16" checked="checked" />16进制</label>
+        <label><input type="radio" name="to" value="32" />32进制</label>
+        <label><input type="radio" name="to" value="36" />36进制</label>
+        <label><input type="radio" name="to" value="58" />58进制</label>
+        <label><input type="radio" name="to" value="62" />62进制</label>
+        <select id="to_hex">
+        </select>
+    </div>
+    <div><label>转换结果：<input type="text" id="res_val" name="res_val" /></label></div>
+</div>
+<script>
+    $(function (){
+        for (var i=1,len=62; i<len; i++){ 
+            if(i==9){
+                $("#from_hex").append('<option value="'+(i+1)+'" selected>'+(i+1)+'进制</option>');
+                $("#to_hex").append('<option value="'+(i+1)+'">'+(i+1)+'进制</option>');
+            }else if(i==15){
+                $("#from_hex").append('<option value="'+(i+1)+'">'+(i+1)+'进制</option>');
+                $("#to_hex").append('<option value="'+(i+1)+'" selected>'+(i+1)+'进制</option>');
+            }else{
+                $("#from_hex").append('<option value="'+(i+1)+'">'+(i+1)+'进制</option>');
+                $("#to_hex").append('<option value="'+(i+1)+'">'+(i+1)+'进制</option>');
+            }
+        }
+        $('[name="from"]').click(function (){
+            $('#from_hex').val($(this).val());
+            $('#hex_val').val("");
+            $('#res_val').val("");
+        });
+        $('[name="to"]').click(function (){
+            $('#to_hex').val($(this).val());
+            calc_a2b();
+        });
+        $("#from_hex").change(function(){
+            $("#in_hex input").removeAttr("checked");
+            var val = $(this).val();
+            $("#in_hex input[value="+val+"]").attr("checked","checked");
+            $('#hex_val').val("");
+            $('#res_val').val("");
+        });
+        $("#to_hex").change(function(){
+            $("#out_hex input").removeAttr("checked");
+            var val = $(this).val();
+            $("#out_hex input[value="+val+"]").attr("checked","checked");
+            calc_a2b();
+        });
+    });
+</script>
+    </div>
+
+</section>
+  </div>
+  <footer id="footer">
+    <div id="footer-link" class="footer-inner">
+        <a href="/history">更新历史</a> | <a href="/feedback">问题反馈</a> | <a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=Z5QEIEu2">加入群聊</a>
+    </div>
+    <!-- <div><a>当前注册人数：</a></div> -->
+    <div id="footer-inner" class="footer-inner">
+        ©CopyRight 2020-2022 tools.readflag.cn All Rights Reserved.
+    </div>
+</footer>
+  
+<script src="/js/activate-power-mode.js"></script>
+
+  
+<script src="/js/header.js"></script>
+
+</body>
+</html>

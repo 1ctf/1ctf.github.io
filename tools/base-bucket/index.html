@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Base编码解码全家桶 | CTFWiki Tools</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="CTFWiki Tools" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="note"></div>
+  <header id="header">
+    <div id="header-inner" class="inner">
+        <nav id="main-nav">
+            
+                <a class="main-nav-link " href="/tools">在线工具</a>
+            
+                <a class="main-nav-link " href="/events">近期赛事</a>
+            
+                <a class="main-nav-link " href="/platforms">练习平台</a>
+            
+                <a class="main-nav-link " href="/constants">常量查表</a>
+            
+                <a class="main-nav-link " href="/softs">软件下载</a>
+            
+                <a class="main-nav-link " href="/blogs">博客论坛</a>
+            
+                <a class="main-nav-link " href="/discuss">用户交流</a>
+            
+                <a class="main-nav-link " href="/profile">个人中心</a>
+            
+        </nav>
+        <div id="search-form-wrap">
+            <div>
+                <a id="clear" href="javascript:cleartext();">X</a>
+            </div>
+            <div>
+                <input id="kw" name="kw" type="text" maxlength="16" placeholder="搜一搜更简单~" autofocus="autofocus" onkeydown="return search(event);" />
+            </div>
+        </div>
+    </div>
+</header>
+  <div id="container">
+    <section id="main">
+    <div id="center">
+        <link rel="stylesheet" href="./css/index.css" type="text/css"/>
+<div id="panel" style="display: none;">
+    <h1>Base编码解码全家桶</h1>
+    <div id="input_value">
+        <textarea id="message" placeholder="要编码或解码的内容"></textarea>
+        <div id="options">
+            <div id="param_data">
+                <label><input type="button" value="编码" id="encode" /></label>
+                <label><input type="button" value="解码" id="decode" /></label>
+                <label><input type="button" value="自动解码" id="decode_auto" title="支持自动识别算法和多层嵌套" /></label>
+                <label>|</label>
+                <label id="res_str"><input type="radio" value="str" name="res_format" checked="checked" />明文显示字符串</label>
+                <label id="res_oct" style="display: none;"><input type="radio" value="oct" name="res_format" />明文显示10进制</label>
+                <label id="res_hex"><input type="radio" value="hex" name="res_format" />明文显示16进制</label>
+            </div>
+            <hr>
+            <div>
+                <label><input type="radio" value="16" name="base" />Base16</label>
+                <label><input type="radio" value="32" name="base" />Base32</label>
+                <label><input type="radio" value="36" name="base" />Base36</label>
+                <label><input type="radio" value="58" name="base" />Base58</label>
+                <label><input type="radio" value="62" name="base" />Base62</label>
+                <label><input type="radio" value="64" name="base" checked="checked"/>Base64</label>
+                <label><input type="radio" value="85" name="base" />Base85</label>
+                <label><input type="radio" value="91" name="base" />Base91</label>
+                <label><input type="radio" value="92" name="base" />Base92</label>
+                <label><input type="radio" value="100" name="base" />Base100</label>
+            </div>
+            <hr>
+            <div>
+                <label>算法（通常保持默认就好）：</label>
+                <label class="b32">
+                    <input type="radio" value="rfc4648" name="base32" checked="checked" />默认（RFC4648）
+                </label>
+                <label class="b32">
+                    <input type="radio" value="gmp" name="base32" />RCF4684 HEX/GMP
+                </label>
+                <label class="b32">
+                    <input type="radio" value="crockford" name="base32" />CROCKFORD
+                </label>
+                <label class="b32">
+                    <input type="radio" value="zbase32" name="base32" />ZBASE32
+                </label>
+                <label class="b58">
+                    <input type="radio" value="pure" name="base58" checked="checked" />默认（BITCOIN/IPFS）
+                </label>
+                <label class="b58">
+                    <input type="radio" value="gmp" name="base58" />GMP
+                </label>
+                <label class="b58">
+                    <input type="radio" value="flickr" name="base58" />FLICKR
+                </label>
+                <label class="b58">
+                    <input type="radio" value="ripple" name="base58" />RIPPLE
+                </label>
+                <label class="b62">
+                    <input type="radio" value="pure" name="base62" checked="checked" />默认
+                </label>
+                <label class="b62">
+                    <input type="radio" value="gmp" name="base62" />GMP
+                </label>
+                <label class="b85">
+                    <input type="radio" value="ascii85" name="base85" checked="checked" />默认（ascii85）
+                </label>
+                <label class="b85">
+                    <input type="radio" value="adobe_ascii85" name="base85" />adobe_ascii85
+                </label>
+                <label class="b85">
+                    <input type="radio" value="zeromq" name="base85" />zeromq
+                </label>
+                <label class="b85">
+                    <input type="radio" value="rfc1924" name="base85" />rfc1924
+                </label>
+            </div>
+            <hr>
+            <div>
+                <label>换表：<input type="input" name="table" id="table" value="" /></label>
+            </div>
+        </div>
+        <textarea id="baseMessage" readonly="readonly"></textarea>
+    </div>
+</div>
+<script src="./js/index.js"></script>
+    </div>
+
+</section>
+  </div>
+  <footer id="footer">
+    <div id="footer-link" class="footer-inner">
+        <a href="/history">更新历史</a> | <a href="/feedback">问题反馈</a> | <a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=Z5QEIEu2">加入群聊</a>
+    </div>
+    <!-- <div><a>当前注册人数：</a></div> -->
+    <div id="footer-inner" class="footer-inner">
+        ©CopyRight 2020-2022 tools.readflag.cn All Rights Reserved.
+    </div>
+</footer>
+  
+<script src="/js/activate-power-mode.js"></script>
+
+  
+<script src="/js/header.js"></script>
+
+</body>
+</html>

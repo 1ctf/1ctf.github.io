@@ -1,0 +1,314 @@
+@media screen and (min-width: 760px) {
+  .welcome_text{
+    font-family: "fira_sans";
+    font-size: 140%;
+    line-height: 140%;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .welcome_the_other{
+    font-size: 80%;
+  }
+}
+@media screen and (min-width: 1024px) {
+
+  html[orientation="landscape"] .landscape-overlay {
+    display: none;
+  }
+  
+  body [hideItIfMobile]{
+    display: block;
+  }
+
+  body [showItIfMobile]{
+    display: none;
+  }
+  .encryption_input_count{
+   top: 40rem;
+  }
+  .svg_wrapper_header_name{
+    width: 30rem;
+  }
+
+  .svg_wrapper_header{
+    width: 22rem;
+    height: 7rem;
+/*    margin: 2rem 0;
+*/  }
+  .share_social_wrapper {
+      margin-bottom: 3rem;
+  }
+  .svg_wrapper_landing_key{
+    width: 15rem;
+    margin-bottom: 4rem;
+  }
+  .share_message_item{
+    margin: 6rem 0;
+  } 
+  .svg_wrapper_not_found{
+    width: 30rem!important;
+    height: auto;
+  }
+  .section_main_wrapper{
+    flex-direction: row;
+  }
+  .section_main_wrapper .header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    right: 0;
+    left: 0;
+    z-index: 3000;
+    box-shadow: 0px -2px 30px rgba(113, 113, 110, 0.19);
+  }
+  .encryption .main_content_bottom{ 
+    background-color: #FAFAFA;
+    color: #283344;
+  }
+  .decryption .main_content_bottom{ 
+    background-color: #F46060;
+    color: #FAFAFA;
+  }
+  .encryption{ 
+    background-color: #005189; 
+  }
+  .encryption .main_keyslider,
+  .decryption .main_keyslider{
+    background-color: #283344;
+    color: #FAFAFA;
+  }
+  .encryption .main_keyslider_bottom_label{
+    color: #FAFAFA;
+  }
+  .encryption .main_content_top_label{
+    color: #FAFAFA;
+  }
+  .decryption .main_content_top_label{
+    color: #283344;
+  }
+  .main_key_panel_emoji_container{
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+/*    margin-top: 27rem;*/
+    margin-bottom: 3rem;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .main_key_panel_emoji_container p{
+    margin: 3px;
+    font-size: 3.7rem;
+    line-height: 90%;
+    transition: transform .15s cubic-bezier(.8,.2,.2,.8);
+  }
+  .main_key_panel_emoji_container p:hover{
+    transform: scale(1.2);
+  }
+  .main_content_top,
+  .main_keyslider{
+    height: 100%;
+    width: 33.33%;
+    padding: 0;
+  }
+  .main_content_bottom{
+    height: 100%;
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+  .main_key_panel_emoji_wrapper{
+    height: 100%;
+    padding-top: 27rem;
+  }
+  .main_key_panel_emoji_wrapper .emoji {
+    cursor: pointer;
+  }
+  .header__label{
+      top: 13.8rem;
+      left: 3.7rem;
+      font-size: 1.5rem;
+      z-index: 2;
+  }
+  .encryption .main_content_top_input,
+  .encryption .main_content_bottom_input{
+  padding: 28rem 5rem 1rem 3.7rem;
+  margin: 0;
+  }
+  .decryption .main_content_top_input,
+  .decryption .main_content_bottom_input{
+  padding: 28rem 5rem 1rem 3.7rem;
+  margin: 0;
+  }
+  .svg_wrapper_x{
+    top: 26.7rem;
+  }
+  .main_keyslider .header__label{
+    top: 13.8rem;
+  }
+  .section_more{
+    display: none;
+    z-index: 3000;
+    height: 20rem;
+    top: auto;
+    flex-direction: row-reverse;
+    padding: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transition: all .5s;
+    transform: translate(0,0);
+  }
+  .footer_link{
+    font-family: "fira_sans";
+    font-size: 1.6rem;
+    margin: 0;
+    margin-left: 0.5rem;
+    font-weight: 300;
+  }
+
+  .footer_link_wrapper_opacity,
+  .footer_link_wrapper_opacity:active,
+  .footer_link_wrapper_opacity:visited{
+    opacity: .5;
+    margin: 0 2rem;
+    color: white;
+    font-family: "fira_sans";
+  }
+  .more_text_title{
+    color: gray;
+  }
+  .more_text{
+    align-items: flex-start;
+    margin: 0;
+    position: relative;
+    padding-left: 6rem;
+    padding-right: 2rem;
+
+  }
+  .more_text:after{
+    content: "";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #FAFAFA;
+  }
+  .svg_wrapper_more{
+    margin: 0;
+  }
+  .header_desktop_lable{
+    margin: 0rem 0 2rem 0;
+  }
+  .desktop_main_selected_key{
+    height: 28rem;
+    align-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem 3.4rem;
+    position: absolute;
+  }
+  .svg_wrapper_header_logo_wrp{
+    margin-left: 9rem;
+    align-items: flex-start;
+  }
+  .desktop_key{
+    font-size: 7rem;
+    transform: translate(0,15px);
+  }
+  .more_text_wpr{
+    height: 100%;
+    min-width: 66.66%;
+  }
+  .svg_wrapper_header_logo{
+    width: 15rem;
+    margin: 1.2rem 0 1.6rem 0;
+    /*margin: 2rem 0 5rem 0;*/
+  }
+  .header__input{
+    font-size: 2.4rem;
+  }
+  .encryption .main_content_top_input {
+    line-height: 120%;
+  }
+  .decryption .main_content_top_input {
+    line-height: 120%;
+  }
+  .decryption .main_content_top{
+    background-color: #FAFAFA;
+  }
+
+  .encryption_help_button,
+  .decryption_help_button{
+    display: block;
+  }
+  .section_welcome_header{
+    padding-bottom: 1rem; 
+     min-height: 15rem;
+  }
+  .section_welcome_header_text{
+    margin: 1rem 2rem;
+    font-size: 100%;
+    text-align: center;
+  }
+  .landing_encrypted_message{
+    font-size: 200%;
+    max-width: 60rem;
+  }
+
+  .decrypt_feedback{
+    font-size: 90%;
+    line-height: 2.2rem;
+  }
+
+  .share_key {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .share_key_emoji {
+    max-width: 10rem;
+    bottom: 0;
+  }
+
+  .share_key-wrapper,
+  .share_key-wrapper:before, .share_key-wrapper:after,
+  .share_key_emoji-item {
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .share_key-open .share_key-wrapper:before,
+  .share_key-open .share_key-wrapper:after{
+    animation-name: jumper;
+  }
+
+  .share_key_emoji-item {
+    font-size: 75%;
+  }
+
+  .share_key_sentence {
+    max-width: 60rem;
+    line-height: 2.5rem;
+    font-size: 120%;
+    margin: 4rem 0;
+    text-align: left;
+  }
+
+  #share_key_hide {
+    display: none;
+  }
+
+  #key-modal{
+    display: none;
+  }
+
+  .credits_text{
+    font-size: 80%;
+  }
+  .credits_text_main{
+    font-size: 120%;
+  }
+}

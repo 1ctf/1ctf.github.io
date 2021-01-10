@@ -1,0 +1,119 @@
+{"files": {
+  "hworld.ws": {
+    "file":"example/hworld.ws",
+    "author": "?",
+    "origin": "http://compsoc.dur.ac.uk/whitespace/examples.php",
+    "lang": "WS"
+  },
+  "nerd.ws": {
+    "name":"Hello Nerd",
+    "file":"example/nerd.ws",
+    "author":"Vii5ard",
+    "origin":"example/nerd.ws",
+    "lang": "WS"
+  },
+  "nerd.wsa": {
+    "file":"example/nerd.wsa",
+    "author":"Vii5ard",
+    "origin":"example/nerd.wsa",
+    "lang": "WSA"
+  },
+  "hmacro.wsa": {
+    "file":"example/hmacro.wsa",
+    "author":"Vii5ard",
+    "origin":"example/hmacro.wsa",
+    "lang":"WSA"
+  },
+  "name.ws": {
+    "file":"example/name.ws",
+    "author": "?",
+    "origin": "http://compsoc.dur.ac.uk/whitespace/name.ws",
+    "lang": "WS"
+  },
+  "count.ws": {
+    "file":"example/count.ws",
+    "author": "?",
+    "origin": "https://github.com/hostilefork/whitespacers/tree/master/examples/count.ws",
+    "lang": "WS"
+  },
+  "quine.ws": {
+    "file":"example/quine.ws",
+    "author": "Benjamin Lerman",
+    "origin": "http://compsoc.dur.ac.uk/whitespace/contrib.php",
+    "lang": "WS"
+  },
+  "fibonacci.ws": {
+    "name":"Fibonacci",
+    "file":"example/fibonacci.ws",
+    "author": "Chris Morris",
+    "origin":"https://github.com/hostilefork/whitespacers/blob/master/examples/fibonacci.ws",
+    "lang": "WS"
+  },
+  "calc.ws": {
+    "file":"example/calc.ws",
+    "author": "?",
+    "origin":"https://github.com/hostilefork/whitespacers/blob/master/examples/calc.ws",
+    "lang": "WS"
+  },
+  "hanoi.ws": {
+    "file":"example/hanoi.ws",
+    "author": "?",
+    "origin": "https://github.com/hostilefork/whitespacers/blob/master/examples/hanoi.ws",
+    "lang": "WS"
+  },
+  "quine-2.ws": {
+    "file":"example/quine-2.ws",
+    "author": "Benjamin Lerman",
+    "origin":"http://compsoc.dur.ac.uk/whitespace/quine-2.ws",
+    "lang": "WS"
+  },
+  "bf.wsa": {
+    "file": "example/bf.wsa",
+    "origin": "example/bf.wsa",
+    "autohor": "Vii5ard",
+    "lang": "WSA"
+  },
+  "bf.ws": {
+    "file": "example/bf.ws",
+    "origin": "example/bf.ws",
+    "author": "Vii5ard",
+    "lang": "WS"
+  },
+  "collatz.wsa": {
+    "file": "example/collatz.wsa",
+    "origin": "example/collatz.wsa",
+    "author": "Vii5ard",
+    "lang": "WSA"
+  },
+  "lib/math.wsa": {
+    "file": "example/lib/math.wsa",
+    "origin": "example/lib/math.wsa",
+    "author": "Vii5ard",
+    "lang": "WSA"
+  },
+  "lib/string.wsa": {
+    "file": "example/lib/string.wsa",
+    "origin": "example/lib/string.wsa",
+    "author": "Vii5ard",
+    "lang": "WSA"
+  },
+  "lib/alias.wsa": {
+    "file": "example/lib/alias.wsa",
+    "origin": "example/lib/alias.wsa",
+    "author": "Vii5ard",
+    "lang": "WSA"
+  },
+  "lib/rot13.wsa": {
+    "file": "example/lib/rot13.wsa",
+    "origin": "example/lib/rot13.wsa",
+    "author": "Vii5ard",
+    "lang": "WSA"
+  },
+  "lib/std.wsa": {
+    "file": "example/lib/std.wsa",
+    "origin": "example/lib/std.wsa",
+    "author": "Vii5ard",
+    "lang": "WSA"
+  }
+
+}}

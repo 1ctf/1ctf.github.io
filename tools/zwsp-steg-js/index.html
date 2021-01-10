@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zero-width space steganography javascript demo</title>
+    <link rel="stylesheet" href="./css/github.css" media="none" onload="if(this.media!=='all')this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="./css/github.css"></noscript>
+  </head>
+  
+  <body>
+    <div id="app">
+      <div class="container appcontainer">
+        <div class="card mb-2">
+          <div class="card-body">
+            <h5 class="card-title">Zero-Width space steganography</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Encode / decode hidden messages with special non printable / readable unicode characters</h6></div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-body">
+            <h5 class="card-title">Encoding</h5>
+            <form>
+              <div class="form-group">
+                <label for="inputCarrier">Carrier message</label>
+                <input type="text" class="form-control" id="inputCarrier" aria-describedby="inputCarrier" placeholder="Lorem ipsum dolor sit amet, consetetur sadipscing elitr">
+                <small id="carrierHelp" class="form-text text-muted">This is the message where the hidden message will be put inside.</small></div>
+              <div class="form-group">
+                <label for="inputMessage">Hidden Message</label>
+                <input type="text" class="form-control" id="inputMessage"></div>
+              <button id="btnEncode" class="btn btn-primary mb-2">Hide</button>
+              <div class="form-group">
+                <label for="outputResult">Result</label>
+                <input type="text" class="form-control" id="outputResult" readonly>
+                <small id="outputHelp" class="form-text text-muted">Copy this text and paste it below to decode the hidden message.</small></div>
+            </form>
+          </div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-body">
+            <h5 class="card-title">Decoding</h5>
+            <form>
+              <div class="form-group">
+                <label for="inputHiddenMessage">Message</label>
+                <input type="text" class="form-control" id="inputHiddenMessage" aria-describedby="inputHiddenMessage"></div>
+              <button id="btnDecode" class="btn btn-primary mb-2">Show</button>
+              <div class="form-group">
+                <label for="outputResultDecode">Result</label>
+                <input type="text" class="form-control" id="outputResultDecode" readonly></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/zwspsteg.js"></script>
+  </body>
+</html>

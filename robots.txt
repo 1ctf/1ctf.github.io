@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: 
+Disallow: /events/
+Disallow: /platforms/
+Disallow: /constants/
+Disallow: /softs/
+Disallow: /blogs/
+Disallow: /discuss/
+Disallow: /profile/

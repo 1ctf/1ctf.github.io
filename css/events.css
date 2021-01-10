@@ -1,0 +1,119 @@
+.event_status {
+  height: 40px;
+}
+.event_status span {
+  float: left;
+  line-height: 20px;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.event_status span a {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 1px #888 dashed;
+  float: left;
+  margin-right: 0.5em;
+}
+.event_status0 {
+  background-color: #ffffe0;
+}
+.event_status1 {
+  background-color: #ffd700;
+}
+.event_status2 {
+  background-color: #fa8072;
+}
+.event_status3 {
+  background-color: #7cfc00;
+}
+.event_status4 {
+  background-color: #dcdcdc;
+}
+.event_info {
+  width: 228px;
+  height: 210px;
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+  border: 1px dashed #ccc;
+}
+.event_info div {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  margin: 0 10px;
+}
+.event_info div label {
+  display: block;
+  float: left;
+  width: 60px;
+}
+.event_info div a {
+  display: block;
+  float: left;
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.event_info div a:link:hover {
+  text-decoration: underline !important;
+}
+#popLayer {
+  display: none;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0.6;
+}
+#popBox {
+  display: none;
+  background-color: #fff;
+  z-index: 11;
+  width: 500px;
+  height: 400px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+#popBox .readmore {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+  font-size: 13px;
+  line-height: 20px;
+}
+#popBox .readmore div {
+  height: 30px;
+  line-height: 30px;
+}
+#popBox .readmore div p {
+  border: 1px #ddd dashed;
+  line-height: 20px;
+  height: 80px;
+  padding: 3px;
+}
+#popBox .readmore div p a:link {
+  color: #00f !important;
+}
+#popBox .readmore div p a:link:hover {
+  text-decoration: underline !important;
+}
+#popBox .close {
+  text-align: right;
+  margin-right: 5px;
+  background-color: #f8f8f8;
+}
+#popBox .close a {
+  text-decoration: none;
+  color: #2d2c3b;
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>jsfuck/js转六种字符 | CTFWiki Tools</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="CTFWiki Tools" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="note"></div>
+  <header id="header">
+    <div id="header-inner" class="inner">
+        <nav id="main-nav">
+            
+                <a class="main-nav-link " href="/tools">在线工具</a>
+            
+                <a class="main-nav-link " href="/events">近期赛事</a>
+            
+                <a class="main-nav-link " href="/platforms">练习平台</a>
+            
+                <a class="main-nav-link " href="/constants">常量查表</a>
+            
+                <a class="main-nav-link " href="/softs">软件下载</a>
+            
+                <a class="main-nav-link " href="/blogs">博客论坛</a>
+            
+                <a class="main-nav-link " href="/discuss">用户交流</a>
+            
+                <a class="main-nav-link " href="/profile">个人中心</a>
+            
+        </nav>
+        <div id="search-form-wrap">
+            <div>
+                <a id="clear" href="javascript:cleartext();">X</a>
+            </div>
+            <div>
+                <input id="kw" name="kw" type="text" maxlength="16" placeholder="搜一搜更简单~" autofocus="autofocus" onkeydown="return search(event);" />
+            </div>
+        </div>
+    </div>
+</header>
+  <div id="container">
+    <section id="main">
+    <div id="center">
+        <style>
+h1 {
+    font-size: 2em;
+    font-weight: normal;
+}
+h3 {
+    font-weight: bold;
+}
+p, li, textarea, .actions {
+    width: 100%;
+}
+textarea {
+    display: block;
+    height: 200px;
+    margin: 1em 0;
+}
+ul.pre li{
+    white-space: pre;
+    list-style-type: inherit;
+    text-indent: 2em;
+}
+.checkbox {
+    display: inline-block;
+}
+.actions a {
+    float: right;
+}
+.actions {
+    clear: both;
+}
+</style>
+<h1>JSFuck</h1>
+<div style="text-align: left;">
+    <p>JSFuck is an esoteric and educational programming style based on the atomic parts of JavaScript. It uses only six different characters to write and execute code.</p>
+    <p>It does not depend on a browser, so you can even run it on Node.js.</p>
+    <p>Use the form below to convert your own script. Uncheck "eval source" to get back a plain string.</p>
+    <input id="input" type="text" value="alert(1)" />
+    <button id="encode" type="text">Encode</button>
+    <div class="checkbox">
+        <input id="eval" type="checkbox" checked />
+        <label for="eval">Eval Source</label>
+    </div>
+    <div class="checkbox">
+        <input id="scope" type="checkbox" checked />
+        <label for="scope">Run In Parent Scope</label>
+    </div>
+    <textarea id="output"></textarea>
+    <div class="actions">
+        <span id="stats">…</span>
+        <a id="run" href="#">Run This</a>
+    </div>
+    <h3>Alternatives</h3>
+    <ul>
+        <li><a target="_blank" rel="noopener" href="http://patriciopalladino.com/files/hieroglyphy/">Hieroglyphy</a> (8 chars, browser only)</li>
+        <li><a target="_blank" rel="noopener" href="http://utf-8.jp/public/jsfuck.html">utf-8.jp</a> (broken)</li>
+        <li><a target="_blank" rel="noopener" href="http://discogscounter.getfreehosting.co.uk/js-noalnum.php">JS-NoAlnum</a> (broken)</li>
+    </ul>
+    <h3>Basics</h3>
+    <ul class="pre">
+        <li>false => ![]</li>
+        <li>true => !![]</li>
+        <li>undefined => [][[]]</li>
+        <li>NaN => +[![]]</li>
+        <li>0 => +[]</li>
+        <li>1 => +!+[]</li>
+        <li>2 => !+[]+!+[]</li>
+        <li>10 => [+!+[]]+[+[]]</li>
+        <li>Array => []</li>
+        <li>Number => +[]</li>
+        <li>String => []+[]</li>
+        <li>Boolean => ![]</li>
+        <li>Function => []["filter"]</li>
+        <li>eval => []["filter"]["constructor"]( CODE )()</li>
+        <li>window => []["filter"]["constructor"]("return this")()</li>
+    </ul>
+    <p>See the full list <a target="_blank" rel="noopener" href="https://github.com/aemkei/jsfuck/blob/master/jsfuck.js">here</a>.</p>
+</div>
+<script src="./js/jsfuck.js"></script>
+<script>
+function $(id){
+    return document.getElementById(id);
+}
+function encode(){
+    var output = JSFuck.encode($("input").value, $("eval").checked, $("scope").checked);
+    $("output").value = output;
+    $("stats").innerHTML = output.length + " chars";
+}
+$("encode").onclick = encode;
+$("eval").onchange = encode;
+$("scope").onchange = encode;
+encode();
+$("run").onclick = function(){
+    value = eval($("output").value);
+    if (!$("eval").checked){
+    alert('"' + value + '"');
+    }
+    return false;
+};
+</script>
+
+    </div>
+
+</section>
+  </div>
+  <footer id="footer">
+    <div id="footer-link" class="footer-inner">
+        <a href="/history">更新历史</a> | <a href="/feedback">问题反馈</a> | <a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=Z5QEIEu2">加入群聊</a>
+    </div>
+    <!-- <div><a>当前注册人数：</a></div> -->
+    <div id="footer-inner" class="footer-inner">
+        ©CopyRight 2020-2022 tools.readflag.cn All Rights Reserved.
+    </div>
+</footer>
+  
+<script src="/js/activate-power-mode.js"></script>
+
+  
+<script src="/js/header.js"></script>
+
+</body>
+</html>

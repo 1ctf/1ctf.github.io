@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>常见文件的文件头、文件尾 | CTFWiki Tools</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="CTFWiki Tools" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <script src="//cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  <script src="//cdn.bootcdn.net/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="note"></div>
+  <header id="header">
+    <div id="header-inner" class="inner">
+        <nav id="main-nav">
+            
+                <a class="main-nav-link " href="/tools">在线工具</a>
+            
+                <a class="main-nav-link " href="/events">近期赛事</a>
+            
+                <a class="main-nav-link " href="/platforms">练习平台</a>
+            
+                <a class="main-nav-link " href="/constants">常量查表</a>
+            
+                <a class="main-nav-link " href="/softs">软件下载</a>
+            
+                <a class="main-nav-link " href="/blogs">博客论坛</a>
+            
+                <a class="main-nav-link " href="/discuss">用户交流</a>
+            
+                <a class="main-nav-link " href="/profile">个人中心</a>
+            
+        </nav>
+        <div id="search-form-wrap">
+            <div>
+                <a id="clear" href="javascript:cleartext();">X</a>
+            </div>
+            <div>
+                <input id="kw" name="kw" type="text" maxlength="16" placeholder="搜一搜更简单~" autofocus="autofocus" onkeydown="return search(event);" />
+            </div>
+        </div>
+    </div>
+</header>
+  <div id="container">
+    <section id="main">
+    <div id="center">
+        <link rel="stylesheet" href="/css/base/table.css" type="text/css"/>
+
+<p>扩展名只是表象，文件格式才是本质<br><br/></p>
+<div style="text-align: left;">
+
+<table>
+<thead>
+<tr>
+<th>扩展名</th>
+<th>文件头</th>
+<th>文件尾</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JPEG(jpg)</td>
+<td>FF D8 FF</td>
+<td>FF D9</td>
+</tr>
+<tr>
+<td>PNG(png)</td>
+<td>89 50 4E 47</td>
+<td>AE 42 60 82</td>
+</tr>
+<tr>
+<td>GIF(gif)</td>
+<td>47 49 46 38</td>
+<td>003B</td>
+</tr>
+<tr>
+<td>TIFF(tif)</td>
+<td>49 49 2A 00</td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Bitmap(bmp)</td>
+<td>42 4D C0 01</td>
+<td></td>
+</tr>
+<tr>
+<td>ZIP Archive(zip)</td>
+<td>50 4B 03 04</td>
+<td>00 00 00</td>
+</tr>
+<tr>
+<td>RAR Archive(rar)</td>
+<td>52 61 72 21</td>
+<td></td>
+</tr>
+<tr>
+<td>Adobe Photoshop(psd)</td>
+<td>38 42 50 53</td>
+<td></td>
+</tr>
+<tr>
+<td>Rich Text Format(rtf)</td>
+<td>7B 5C 72 74 66</td>
+<td></td>
+</tr>
+<tr>
+<td>PYC</td>
+<td>03 F3 0D 0A</td>
+<td></td>
+</tr>
+<tr>
+<td>XML(xml)</td>
+<td>3C 3F 78 6D 6C</td>
+<td></td>
+</tr>
+<tr>
+<td>HTML(html)</td>
+<td>68 74 6D 6C 3E</td>
+<td></td>
+</tr>
+<tr>
+<td>Adobe Acrobat(pdf)</td>
+<td>25 50 44 46 2D 31 2E</td>
+<td></td>
+</tr>
+<tr>
+<td>Wave(wav)</td>
+<td>57 41 56 45</td>
+<td></td>
+</tr>
+<tr>
+<td>MIDI(mid)</td>
+<td>4D 54 68 64</td>
+<td></td>
+</tr>
+<tr>
+<td>AVI(avi)</td>
+<td>41 56 49 20</td>
+<td></td>
+</tr>
+<tr>
+<td>pcap(pcap)</td>
+<td>4D 3C 2B 1A</td>
+<td></td>
+</tr>
+<tr>
+<td>CAD(dwg)</td>
+<td>41433130</td>
+<td></td>
+</tr>
+<tr>
+<td>Email [thorough only] (eml)</td>
+<td>44 65 6C 69 76 65 72 79 2D 64 61 74 65 3A</td>
+<td></td>
+</tr>
+<tr>
+<td>Outlook Express(dbx)</td>
+<td>CF AD 12 FE C5 FD 74 6F</td>
+<td></td>
+</tr>
+<tr>
+<td>Outlook(pst)</td>
+<td>21 42 44 4E</td>
+<td></td>
+</tr>
+<tr>
+<td>MS Word/Excel(xls.or.doc)</td>
+<td>D0 CF 11 E0</td>
+<td></td>
+</tr>
+<tr>
+<td>MS Access(mdb)</td>
+<td>53 74 61 6E 64 61 72 64 20 4A</td>
+<td></td>
+</tr>
+<tr>
+<td>WordPerfect(wpd)</td>
+<td>FF 57 50 43</td>
+<td></td>
+</tr>
+<tr>
+<td>Quicken(qdf)</td>
+<td>AC 9E BD 8F</td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Password(pwl)</td>
+<td>E3 82 85 96</td>
+<td></td>
+</tr>
+<tr>
+<td>Real Audio(ram)</td>
+<td>2E 72 61 FD</td>
+<td></td>
+</tr>
+<tr>
+<td>Real Media(rm)</td>
+<td>2E 52 4D 46</td>
+<td></td>
+</tr>
+<tr>
+<td>MPEG(mpg)</td>
+<td>00 00 01 BA 或 00 00 01 B3</td>
+<td></td>
+</tr>
+<tr>
+<td>Quicktime(mov)</td>
+<td>6D 6F 6F 76</td>
+<td></td>
+</tr>
+<tr>
+<td>Windows Media(asf)</td>
+<td>30 26 B2 75 8E 66 CF 11</td>
+<td></td>
+</tr>
+</tbody></table>
+</div>
+<script src="/js/base/fp.js"></script>
+    </div>
+
+</section>
+  </div>
+  <footer id="footer">
+    <div id="footer-link" class="footer-inner">
+        <a href="/history">更新历史</a> | <a href="/feedback">问题反馈</a> | <a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=Z5QEIEu2">加入群聊</a>
+    </div>
+    <!-- <div><a>当前注册人数：</a></div> -->
+    <div id="footer-inner" class="footer-inner">
+        ©CopyRight 2020-2022 tools.readflag.cn All Rights Reserved.
+    </div>
+</footer>
+  
+<script src="/js/activate-power-mode.js"></script>
+
+  
+<script src="/js/header.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+hr{border: 1px dashed #CCC;}
+#input_value{
+    width: 830px;
+    /* background-color: #B8DAFF; */
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#input_value textarea{
+    width: 830px;
+    height: 260px;
+    box-sizing: border-box;
+    border: 1px #ccc solid;
+    padding: 1%;
+    resize: none;
+    outline: none;
+    font-size: 1em;
+    flex-direction: column;
+}
+#input_value #options{
+    width: 100%;
+    text-align: left;
+    float: left;
+}
+#input_value #options label{
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    /* border: 1px solid #000; */
+    margin: 2px;
+    user-select: none;
+}
+input[type=button]{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    height: 22px;
+}
+input[name='table']{
+    width: 750px;
+    height: 24px;
+    text-indent: 0.5em;
+}
+.b32,.b58,.b62,.b85{
+    display: none;
+}
